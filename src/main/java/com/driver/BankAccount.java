@@ -10,17 +10,18 @@ public class BankAccount {
         this.minBalance = minBalance;
     }
 
-    public String generateAccountNumber(int digits, int sum) throws Exception{
+    public String generateAccountNumber(int digits, int sum) throws Exception {
         //Each digit of an account number can lie between 0 and 9 (both inclusive)
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
 
 
-        //Method - 2
-        if(9*digits<sum || sum<0)
+        //Method - 1
+        StringBuilder accno;
+        if (9 * digits < sum || sum < 0)
             throw new Exception("Account Number can not be generated");
         else {
-            StringBuilder accno = new StringBuilder();
+            accno = new StringBuilder();
             int nines = sum / 9;
             int rem = sum % 9;
             while (nines-- > 0)
@@ -29,9 +30,11 @@ public class BankAccount {
                 accno.append(String.valueOf(rem));
             while (accno.length() < digits)
                 accno.append("0");
+        }
+        return accno.toString();
 
-            return accno.toString();
 
+        //Method - 2(Prateek's method)
 //        if(9*digits < sum){
 //            throw new AcNumberException("Account Number can not be generated");
 //        }
