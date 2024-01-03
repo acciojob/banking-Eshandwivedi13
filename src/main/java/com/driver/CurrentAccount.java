@@ -6,6 +6,10 @@ public class CurrentAccount extends BankAccount{
     public CurrentAccount(String name, double balance, String tradeLicenseId) throws Exception {
         // minimum balance is 5000 by default. If balance is less than 5000, throw "Insufficient Balance" exception
         super(name, balance, 5000);
+        if(balance<5000)
+        {
+            throw new InSufficientBalanceException("Insufficient Balance");
+        }
         this.tradeLicenseId = tradeLicenseId;
 
     }
@@ -46,7 +50,7 @@ public class CurrentAccount extends BankAccount{
         info block = isPossible.poll();
         if (block != null) {
             sb.append(block.ch);
-            if(block.freq >= tradeLicenseId.length() + 1){
+            if(block.freq > (tradeLicenseId.length() + 1) / 2){
                 throw new LicenseInvalid("Valid License can not be generated");
             }
             block.freq--;
@@ -60,7 +64,7 @@ public class CurrentAccount extends BankAccount{
             }
             block = temp;
         }
-        if (block != null && block.freq > 0) {//it means this is a repeating character, reorganization not possible
+        if (block != null && block.freq != 0) {//it means this is a repeating character, reorganization not possible
             return;
         }
 //        System.out.println(tradeLicenseId);
