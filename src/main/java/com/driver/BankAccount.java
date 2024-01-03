@@ -17,18 +17,20 @@ public class BankAccount {
 
 
         //Method - 2
-        if(9*digits<sum || sum<0){
-            throw new AcNumberException("Account Number can not be generated");
-        }
-        StringBuilder accNo = new StringBuilder();
-        // Start with the most significant digit
-        for (int i = 1; i <= digits; i++){
-            // Generate a random digit between 0 and 9 (both inclusive)
-            int digit = (int) (Math.random() * 10);//gives random decimal value and converting in integer
-            // Append the digit to the account number
-            accNo.append(digit);
-        }
-        return accNo.toString();
+        if(9*digits<sum || sum<0)
+            throw new Exception("Account Number can not be generated");
+        else {
+            StringBuilder accno = new StringBuilder();
+            int nines = sum / 9;
+            int rem = sum % 9;
+            while (nines-- > 0)
+                accno.append("9");
+            if (rem > 0)
+                accno.append(String.valueOf(rem));
+            while (accno.length() < digits)
+                accno.append("0");
+
+            return accno.toString();
 
 //        if(9*digits < sum){
 //            throw new AcNumberException("Account Number can not be generated");
