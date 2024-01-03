@@ -1,9 +1,6 @@
 package com.driver;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class CurrentAccount extends BankAccount{
     String tradeLicenseId; //consists of Uppercase English characters only
@@ -38,13 +35,14 @@ public class CurrentAccount extends BankAccount{
 
         PriorityQueue<info> isPossible =  new PriorityQueue<>((a,b) -> (b.freq - a.freq));//want to arrange in descending order
         StringBuilder sb = new StringBuilder();
-        int[] map = new int[26];
+        HashMap<Character,Integer> map=new HashMap<>();
         for(int i=0; i<tradeLicenseId.length(); i++){
-            map[tradeLicenseId.charAt(i)- 'a']++;
+            char currentChar = tradeLicenseId.charAt(i);
+            map.put(currentChar, map.getOrDefault(currentChar, 0) + 1);
         }
-        for(int i=0; i<26; i++){
-            if(map[i] > 0){
-                isPossible.add(new info((char)('a' + i), map[i]));//index + 'a' = character, & map[i] = freq
+        for(char key : map.keySet()){
+            if(map.get(key) > 0){
+                isPossible.add(new info(key, map.get(key)));//index + 'a' = character, & map[i] = freq
             }
         }
         info block = isPossible.poll();
@@ -67,6 +65,9 @@ public class CurrentAccount extends BankAccount{
         if (block != null && block.freq > 0) {//it means this is a repeating character, reorganization not possible
             return;
         }
+//        System.out.println(tradeLicenseId);
+        this.tradeLicenseId = sb.toString();
+//        System.out.println(tradeLicenseId);
 
         /*for(int i=0; i<n-1; i++){
             if(tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i+1)){

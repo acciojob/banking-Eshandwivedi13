@@ -17,14 +17,14 @@ public class SavingsAccount extends BankAccount{
         if(amount > maxWithdrawalLimit){
             throw new userDefinedException("Maximum Withdraw Limit Exceed");
         }
-        if(amount > getBalance()){
-            throw new userDefinedException("Insufficient Balance");
+        else{
+            withdraw(amount);
         }
     }
 
     public double getSimpleInterest(int years){
         // Return the final amount considering that bank gives simple interest on current amount
-        double SI = (getBalance() * rate * years)/100;
+        double SI = getBalance()*(rate/100)*years;
         return SI;
     }
 
