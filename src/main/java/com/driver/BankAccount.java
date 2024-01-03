@@ -1,7 +1,5 @@
 package com.driver;
-/*
 public class BankAccount {
-
     private String name;
     private double balance;
     private double minBalance;
@@ -115,8 +113,9 @@ public class BankAccount {
             balance -= amount;
         }
     }
-}*/
+}
 
+/*
 public class BankAccount {
 
     private String name;
@@ -231,4 +230,4 @@ public class BankAccount {
     public void setMinBalance(double minBalance) {
         this.minBalance = minBalance;
     }
-}
+}*/
