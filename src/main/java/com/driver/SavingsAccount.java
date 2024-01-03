@@ -1,3 +1,4 @@
+package com.driver;
 public class SavingsAccount extends BankAccount{
     double rate;
     double maxWithdrawalLimit;
@@ -57,3 +58,6 @@ public class SavingsAccount extends BankAccount{
         this.maxWithdrawalLimit = maxWithdrawalLimit;
     }
 }
+
+
+
