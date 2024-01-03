@@ -1,6 +1,5 @@
 package com.driver;
 import java.util.*;
-
 //Mine CODE ->>>
 public class CurrentAccount extends BankAccount{
     String tradeLicenseId; //consists of Uppercase English characters only
@@ -10,7 +9,6 @@ public class CurrentAccount extends BankAccount{
         this.tradeLicenseId = tradeLicenseId;
 
     }
-
     public String getTradeLicenseId() {
         return tradeLicenseId;
     }
@@ -69,7 +67,6 @@ public class CurrentAccount extends BankAccount{
         this.tradeLicenseId = sb.toString();
 //        System.out.println(tradeLicenseId);
 
-
 //Method -2
 //        for(int i=0; i<n-1; i++){
 //            if(tradeLicenseId.charAt(i) == tradeLicenseId.charAt(i+1)){
@@ -86,13 +83,14 @@ public class CurrentAccount extends BankAccount{
 //        }
 
     }
-}
-class info{
-    char ch;
-    int freq;
-    info(char ch, int freq){
-        this.ch = ch;
-        this.freq = freq;
+    static class info{
+        char ch;
+        int freq;
+        info(char ch, int freq){
+            this.ch = ch;
+            this.freq = freq;
+        }
     }
 }
+
 
