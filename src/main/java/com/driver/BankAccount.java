@@ -96,6 +96,18 @@ public class BankAccount {
         return balance;
     }
 
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setMinBalance(double minBalance) {
+        this.minBalance = minBalance;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
