@@ -16,6 +16,21 @@ public class BankAccount {
         //Each digit of an account number can lie between 0 and 9 (both inclusive)
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
+
+
+        /*if(9*digits<sum || sum<0){
+            throw new AcNumberException("Account Number can not be generated");
+        }
+        StringBuilder accNo = new StringBuilder();
+        // Start with the most significant digit
+        for (int i = 1; i <= digits; i++){
+            // Generate a random digit between 0 and 9 (both inclusive)
+            int digit = (int) (Math.random() * 10);//gives random decimal value and converting in integer
+            // Append the digit to the account number
+            accNo.append(digit);
+        }
+        return accNo.toString();*/
+
         if(9*digits < sum){
             throw new AcNumberException("Account Number can not be generated");
         }
