@@ -49,7 +49,7 @@ public class CurrentAccount extends BankAccount{
         if (block != null) {
             sb.append(block.ch);
             if(block.freq >= tradeLicenseId.length() + 1){
-                throw new userDefinedException("Valid License can not be generated");
+                throw new LicenseInvalid("Valid License can not be generated");
             }
             block.freq--;
         }

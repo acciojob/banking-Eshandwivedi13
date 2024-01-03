@@ -17,7 +17,7 @@ public class BankAccount {
         //Generate account number having given number of 'digits' such that the sum of digits is equal to 'sum'
         //If it is not possible, throw "Account Number can not be generated" exception
         if(9*digits<sum || sum<0){
-            throw new userDefinedException("Account Number can not be generated");
+            throw new AcNumberException("Account Number can not be generated");
         }
         StringBuilder accNo = new StringBuilder();
         // Start with the most significant digit
@@ -50,7 +50,7 @@ public class BankAccount {
     public void withdraw(double amount) throws Exception {
         // Remember to throw "Insufficient Balance" exception, if the remaining amount would be less than minimum balance
        if (balance - amount < minBalance) {
-            throw new userDefinedException("Insufficient balance");
+            throw new InSufficientBalanceException("Insufficient balance");
         } else {
             balance -= amount;
         }
